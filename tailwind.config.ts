@@ -1,7 +1,13 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import type { Config } from 'tailwindcss'
 
-export default defineConfig({
-  plugins: [react()],
-  base: '/bisara-system/',
-})
+const config: Config = {
+  content: [
+    './app/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}'
+  ],
+  theme: {
+    extend: {}
+  },
+  plugins: []
+}
+export default config
