@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* small helpers */
+html,body,#root { height:100%; }
+
+/* Simple container */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
