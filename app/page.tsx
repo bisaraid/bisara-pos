@@ -1,19 +1,11 @@
 export default function Home() {
   return (
-    <html lang="en">
-      <head>
-        <link
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="bg-light">
-        <div className="container py-5">
-          <h1 className="display-4 text-primary">Bootstrap Aktif 🎉</h1>
-          <p className="lead">Ini halaman home pakai CDN Bootstrap</p>
-          <button className="btn btn-success">Tes Tombol</button>
-        </div>
-      </body>
-    </html>
+    <main className="min-h-screen flex flex-col items-center justify-center bg-blue-50">
+      <h1 className="text-4xl font-bold text-blue-700 mb-4">Tailwind Aktif 🎉</h1>
+      <p className="text-lg text-gray-600">Selamat datang di Bisara POS</p>
+      <button className="mt-6 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+        Tes Tombol
+      </button>
+    </main>
   )
 }
