@@ -1,6 +1,7 @@
+import { supabase } from '../../../lib/supabaseClient'
+
 export async function GET() {
-  return Response.json({
-    message: 'Endpoint aktif. Supabase belum tersambung.',
-    sample: []
-  })
+  const { data, error } = await supabase.from('products').select('*')
+  if (error) return Response.json({ error }, { status: 500 })
+  return Response.json(data)
 }
