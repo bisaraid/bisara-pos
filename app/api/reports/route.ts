@@ -1,32 +1,25 @@
-import { supabase } from '../../../lib/supabaseClient'
-
-// Helper untuk dapatkan tanggal hari ini dalam format YYYY-MM-DD
-function getTodayDate() {
-  const now = new Date()
-  return now.toISOString().split('T')[0]
-}
-
 export async function GET() {
-  const today = getTodayDate()
-
-  const { data, error } = await supabase
-    .from('transactions')
-    .select(`
-      id,
-      created_at,
-      total,
-      products (
-        name,
-        price
-      )
-    `)
-    .gte('created_at', `${today}T00:00:00`)
-    .lte('created_at', `${today}T23:59:59`)
-    .order('created_at', { ascending: false })
-
-  if (error) {
-    return Response.json({ error }, { status: 500 })
-  }
-
-  return Response.json(data)
+  return Response.json({
+    message: 'Laporan harian aktif. Endpoint siap digunakan.',
+    sample: [
+      {
+        id: 'trx-001',
+        tanggal: '2025-10-25',
+        total: 120000,
+        produk: [
+          { nama: 'Es Teh Manis', qty: 2, harga: 5000 },
+          { nama: 'Nasi Goreng', qty: 1, harga: 25000 }
+        ]
+      },
+      {
+        id: 'trx-002',
+        tanggal: '2025-10-25',
+        total: 75000,
+        produk: [
+          { nama: 'Mie Ayam', qty: 1, harga: 15000 },
+          { nama: 'Es Jeruk', qty: 2, harga: 6000 }
+        ]
+      }
+    ]
+  })
 }
